@@ -22,15 +22,8 @@ MONTHLY_CHALLENGES = {
 
 
 def select_month(request):
-    links = []
-    for month in MONTHLY_CHALLENGES.keys():
-        a = '<a href="{}">{}</a>'.format(
-            reverse("month-challenge", args=[month]),
-            month.capitalize()
-        )
-        links.append(a)
-    li_items = '\n'.join([f'<li>{link}</li>' for link in links])
-    return HttpResponse(f'<ul>{ li_items }</ul>')
+    print(MONTHLY_CHALLENGES)
+    return render(request, 'challenges/index.html', {'challenges': MONTHLY_CHALLENGES})
 
 
 def monthly_challenge(request, month):
