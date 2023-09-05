@@ -15,3 +15,7 @@ def monthly_challenge(request, month):
     if challenge is not None:
         return HttpResponse(challenge)
     return HttpResponseNotFound('This month is not supported!')
+
+
+def monthly_challenge_by_month_number(request, month: int):
+    return HttpResponse(month)
