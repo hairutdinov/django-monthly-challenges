@@ -36,7 +36,11 @@ def select_month(request):
 def monthly_challenge(request, month):
     challenge = MONTHLY_CHALLENGES.get(month)
     if challenge is not None:
-        return render(request, 'challenges/challenge.html')
+        return render(request, 'challenges/challenge.html', {
+            # context for template
+            'text': challenge,
+            'month': month.capitalize(),
+        })
     return HttpResponseNotFound('This month is not supported!')
 
 
