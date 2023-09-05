@@ -15,3 +15,5 @@ python3 manage.py startapp challenges
 **Apps** are building blocks for the project
 
 App ≈ Module
+
+[Built-in template tags and filters](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#top)
