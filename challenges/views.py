@@ -21,6 +21,18 @@ MONTHLY_CHALLENGES = {
 }
 
 
+def select_month(request):
+    links = []
+    for month in MONTHLY_CHALLENGES.keys():
+        a = '<a href="{}">{}</a>'.format(
+            reverse("month-challenge", args=[month]),
+            month.capitalize()
+        )
+        links.append(a)
+    li_items = '\n'.join([f'<li>{link}</li>' for link in links])
+    return HttpResponse(f'<ul>{ li_items }</ul>')
+
+
 def monthly_challenge(request, month):
     challenge = MONTHLY_CHALLENGES.get(month)
     if challenge is not None:
