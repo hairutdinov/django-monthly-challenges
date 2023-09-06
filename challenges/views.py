@@ -17,7 +17,7 @@ MONTHLY_CHALLENGES = {
     "september": "Learn Django for at least 20 minutes every day!",
     "october": "Eat no meat for the entire month!",
     "november": "Walk for at least 20 minutes every day!",
-    "december": "Learn Django for at least 20 minutes every day!"
+    "december": None
 }
 
 
@@ -27,14 +27,15 @@ def select_month(request):
 
 
 def monthly_challenge(request, month):
-    challenge = MONTHLY_CHALLENGES.get(month)
-    if challenge is not None:
+    try:
+        challenge = MONTHLY_CHALLENGES[month]
         return render(request, 'challenges/challenge.html', {
             # context for template
             'text': challenge,
             'month': month,
         })
-    return HttpResponseNotFound('This month is not supported!')
+    except IndexError:
+        return HttpResponseNotFound('This month is not supported!')
 
 
 def monthly_challenge_by_month_number(request, month: int):
