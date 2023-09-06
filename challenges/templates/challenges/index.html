@@ -8,10 +8,10 @@
     <title>All Challenges</title>
 </head>
 <body>
-  <ul>
-    {% for month, challenge in challenges.items %}
-      <li><a href="{% url 'month-challenge' month %}">{{ month }}</a></li>
-    {% endfor %}
-  </ul>
+    <ul>
+        {% for month, challenge in challenges.items %}
+        <li><a href="{% url 'month-challenge' month %}">{{ month }}</a></li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
