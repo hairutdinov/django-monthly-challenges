@@ -3,6 +3,7 @@
 {% block title %}All Challenges{% endblock %}
 
 {% block content %}
+    {% include 'challenges/includes/header.html' %}
     <ul>
         {% for month, challenge in challenges.items %}
         <li><a href="{% url 'month-challenge' month %}">{{ month }}</a></li>

@@ -3,6 +3,7 @@
 {% block title %}{{ month|capfirst }} Challenge{% endblock %}
 
 {% block content %}
+    {% include 'challenges/includes/header.html' %}
     <h1>This Month's Challenge</h1>
     {% if text is not None %}
         <h2>{{ text }}</h2>
