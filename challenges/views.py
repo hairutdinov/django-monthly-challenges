@@ -36,7 +36,8 @@ def monthly_challenge(request, month):
             'month': month,
         })
     except KeyError:
-        return HttpResponseNotFound('This month is not supported!')
+        response = render_to_string('404.html')
+        return HttpResponseNotFound(response)
 
 
 def monthly_challenge_by_month_number(request, month: int):
